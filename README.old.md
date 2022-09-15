@@ -1,2 +1,0 @@
-# woi-platform-frontend
- 
