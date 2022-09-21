@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import CssBaseline from '@mui/material/CssBaseline'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 
@@ -30,12 +31,17 @@ export const theme = createTheme({
 
 function App() {
     return (
-        <ThemeProvider theme={theme}>
-            <CssBaseline/>
-            <Header/>
-            <HomePage/>
-            <Footer/>
-        </ThemeProvider>
+        <BrowserRouter>
+            <ThemeProvider theme={theme}>
+                <CssBaseline/>
+                <Header/>
+                <Routes>
+                    <Route exact path="/" element={<HomePage/>}/>
+                    <Route path="*" element={<HomePage/>}/>
+                </Routes>
+                <Footer/>
+            </ThemeProvider>
+        </BrowserRouter>
     )
 }
 
